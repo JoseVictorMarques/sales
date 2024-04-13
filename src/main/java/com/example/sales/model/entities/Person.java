@@ -1,6 +1,6 @@
-package com.example.sales.models;
+package com.example.sales.model.entities;
 
-import com.example.sales.enums.GenderEnum;
+import com.example.sales.model.enums.GenderEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.example.sales.models;
+package com.example.sales.model.entities;
 
 import lombok.Data;
 import jakarta.persistence.*;
