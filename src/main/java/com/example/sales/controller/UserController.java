@@ -7,14 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("users")
 public class UserController {
     @Autowired
     private UserBusiness userBusiness;
 
-    @PostMapping("/cadastro")
-    public ResponseEntity<User> cadastrarUsuario(@RequestBody User user) {
-        User newUser = userBusiness.cadastrarUsuario(user);
-        return ResponseEntity.ok(newUser);
+    @PostMapping("/register")
+    public ResponseEntity<User> registerUser(@RequestBody User user) {
+        return ResponseEntity.ok(userBusiness.registerUser(user));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Boolean> login(@RequestBody User user) {
+        return ResponseEntity.ok(userBusiness.login(user));
     }
 }

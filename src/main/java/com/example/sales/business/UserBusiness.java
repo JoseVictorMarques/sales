@@ -11,9 +11,19 @@ public class UserBusiness {
     @Autowired
     private UserRepository userRepository;
 
-    public User cadastrarUsuario(User user) {
+    public User registerUser(User user) {
         String hashPassword = PasswordUtils.hashPassword(user.getPassword());
         user.setPassword(hashPassword);
         return userRepository.save(user);
+    }
+
+    public Boolean login(User user) {
+        User userDB = new User();
+        try {
+           userDB = userRepository.findUserByUsername(user.getUsername());
+        }catch(Exception e){
+            throw new RuntimeException(" Username does not exists! ");
+        }
+        return  PasswordUtils.verifyPassword(user.getPassword(),userDB.getPassword());
     }
 }
