@@ -1,5 +1,6 @@
 package com.example.sales.model.entities;
 
+import com.example.sales.model.dtos.ModelDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,4 +24,12 @@ public class Model implements Serializable {
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
+
+    public ModelDTO toDTO(){
+        ModelDTO modelDTO = new ModelDTO();
+        modelDTO.setId(this.id);
+        modelDTO.setName(this.name);
+        modelDTO.setBrandId(this.brand.getId());
+        return modelDTO;
+    }
 }

@@ -19,4 +19,8 @@ public class Brand implements Serializable {
 
     @Column(nullable = false, length = 50)
     private String name;
+
+    public Brand( Long id){
+        this.id = id;
+    }
 }
