@@ -25,8 +25,8 @@ public class Car implements Serializable {
     private String color;
 
     @ManyToOne
-    @JoinColumn(name = "model_id")
-    private Model model;
+    @JoinColumn(name = "model_version_id")
+    private ModelVersion modelVersion;
 
     @ManyToOne
     @JoinColumn(name = "transmission_id")

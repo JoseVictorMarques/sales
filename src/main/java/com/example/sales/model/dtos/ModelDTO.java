@@ -11,6 +11,7 @@ public class ModelDTO {
     Long id;
     String name;
     Long brandId;
+    String brandName;
 
     public Model toEntiy(){
         Model model = new Model();
