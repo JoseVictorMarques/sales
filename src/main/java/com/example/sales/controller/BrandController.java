@@ -2,7 +2,6 @@ package com.example.sales.controller;
 
 import com.example.sales.business.BrandBusiness;
 import com.example.sales.model.entities.Brand;
-import com.example.sales.model.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

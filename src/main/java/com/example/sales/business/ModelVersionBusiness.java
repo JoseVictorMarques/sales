@@ -1,8 +1,6 @@
 package com.example.sales.business;
 
-import com.example.sales.model.dtos.ModelDTO;
 import com.example.sales.model.dtos.ModelVersionDTO;
-import com.example.sales.model.entities.Model;
 import com.example.sales.model.entities.ModelVersion;
 import com.example.sales.repository.ModelVersionRepository;
 import org.springframework.beans.factory.annotation.Autowired;

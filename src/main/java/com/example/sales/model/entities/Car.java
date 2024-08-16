@@ -1,13 +1,19 @@
 package com.example.sales.model.entities;
 
-import com.example.sales.model.enums.TransmissionEnum;
+import com.example.sales.model.dtos.CarDTO;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+import static com.example.sales.utils.Base64Utils.byteArrayToBase64;
+
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="TB_CAR")
 public class Car implements Serializable {
 
@@ -34,4 +40,23 @@ public class Car implements Serializable {
 
     @Column(nullable = false)
     private Integer manufacturingYear;
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "image")
+    private byte[] image;
+
+    public CarDTO toDTO(){
+        CarDTO carDTO = new CarDTO();
+        carDTO.setId(this.id);
+        carDTO.setDescription(this.description);
+        carDTO.setColor(this.color);
+        carDTO.setModelVersionId(this.modelVersion.getId());
+        carDTO.setTransmissionId(this.transmission.getId());
+        carDTO.setManufacturingYear(this.manufacturingYear);
+        if(this.image != null){
+            carDTO.setImageBase64(byteArrayToBase64(this.image));
+        }
+        return carDTO;
+    }
 }

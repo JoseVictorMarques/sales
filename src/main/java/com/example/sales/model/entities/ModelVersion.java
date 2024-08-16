@@ -4,12 +4,16 @@ package com.example.sales.model.entities;
 import com.example.sales.model.dtos.ModelDTO;
 import com.example.sales.model.dtos.ModelVersionDTO;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="TB_MODEL_VERSION")
 public class ModelVersion implements Serializable {
 
@@ -26,6 +30,8 @@ public class ModelVersion implements Serializable {
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;
+
+    public ModelVersion (Long id){ this.id = id;}
 
     public ModelVersionDTO toDTO(){
         ModelVersionDTO modelVersionDTO = new ModelVersionDTO();
