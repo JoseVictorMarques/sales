@@ -2,8 +2,6 @@ package com.example.sales.tests;
 
 import com.example.sales.business.BrandBusiness;
 import com.example.sales.model.entities.Brand;
-import com.example.sales.model.entities.Transmission;
-import com.example.sales.model.enums.TransmissionEnum;
 import com.example.sales.repository.BrandRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
