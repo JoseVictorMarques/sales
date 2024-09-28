@@ -1,11 +1,16 @@
 package com.example.sales.model.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="TB_USER")
 public class User implements Serializable {
 
@@ -28,4 +33,9 @@ public class User implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person person;
+
+    public User( String username, String password){
+        this.username = username;
+        this.password = password;
+    }
 }
