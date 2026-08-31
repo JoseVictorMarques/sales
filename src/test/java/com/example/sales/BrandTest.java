@@ -1,4 +1,4 @@
-package com.example.sales.tests;
+package com.example.sales;
 
 import com.example.sales.business.BrandBusiness;
 import com.example.sales.model.entities.Brand;
@@ -63,5 +63,4 @@ public class BrandTest {
         assertEquals(brand1, result.get(0));
         assertEquals(brand2, result.get(1));
     }
-
 }
