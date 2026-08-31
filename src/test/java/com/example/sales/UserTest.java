@@ -1,4 +1,4 @@
-package com.example.sales.tests;
+package com.example.sales;
 
 import com.example.sales.business.UserBusiness;
 import com.example.sales.model.dtos.UserDTO;
