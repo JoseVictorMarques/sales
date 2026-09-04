@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CarBusiness {
     private static final Logger logger = LoggerFactory.getLogger(CarBusiness.class);
@@ -21,5 +24,12 @@ public class CarBusiness {
         car = repository.save(car);
         logger.info("Car created successfully with ID: {}", car.getId());
         return car.toDTO();
+    }
+
+    public List<CarDTO> listCars(){
+        logger.info("Listing all cars");
+        return repository.findAll().stream()
+                .map(Car::toDTO)
+                .collect(Collectors.toList());
     }
 }
