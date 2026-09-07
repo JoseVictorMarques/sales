@@ -2,6 +2,7 @@ package com.example.sales.controller;
 
 import com.example.sales.business.TransmissionBusiness;
 import com.example.sales.model.entities.Transmission;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,11 @@ public class TransmissionController {
     TransmissionBusiness transmissionBusiness;
 
     @PostMapping("/create-transmission")
-    public ResponseEntity<Transmission> createModel(@RequestBody Transmission transmission){
+    public ResponseEntity<Transmission> createModel(@Valid @RequestBody Transmission transmission){
         return ResponseEntity.ok(transmissionBusiness.createTransmission(transmission));
     }
 
-    @GetMapping("/list-transmisison")
+    @GetMapping({"/list-transmission", "/list-transmisison"})
     public ResponseEntity<List<Transmission>> listTransmission(){
         return ResponseEntity.ok(transmissionBusiness.listTransmission());
     }

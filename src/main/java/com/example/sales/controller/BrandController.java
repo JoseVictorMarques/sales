@@ -2,6 +2,7 @@ package com.example.sales.controller;
 
 import com.example.sales.business.BrandBusiness;
 import com.example.sales.model.entities.Brand;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class BrandController {
     BrandBusiness brandBusiness;
 
     @PostMapping("/create")
-    public ResponseEntity<Brand> createBrand(@RequestBody Brand brand) {
+    public ResponseEntity<Brand> createBrand(@Valid @RequestBody Brand brand) {
         return ResponseEntity.ok(brandBusiness.createBrand(brand));
     }
 
