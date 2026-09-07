@@ -4,6 +4,7 @@ import com.example.sales.business.ModelBusiness;
 import com.example.sales.business.ModelVersionBusiness;
 import com.example.sales.model.dtos.ModelDTO;
 import com.example.sales.model.dtos.ModelVersionDTO;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class ModelController {
     private ModelVersionBusiness modelVersionBusiness;
 
     @PostMapping("/create-model")
-    public ResponseEntity<ModelDTO> createModel(@RequestBody ModelDTO modelDTO){
+    public ResponseEntity<ModelDTO> createModel(@Valid @RequestBody ModelDTO modelDTO){
         return ResponseEntity.ok(modelBusiness.createModel(modelDTO));
     }
 
@@ -30,7 +31,7 @@ public class ModelController {
     }
 
     @PostMapping("/create-model-version")
-    public ResponseEntity<ModelVersionDTO> createModelVersion(@RequestBody ModelVersionDTO modelVersionDTO){
+    public ResponseEntity<ModelVersionDTO> createModelVersion(@Valid @RequestBody ModelVersionDTO modelVersionDTO){
         return ResponseEntity.ok(modelVersionBusiness.createModelVersion(modelVersionDTO));
     }
 
